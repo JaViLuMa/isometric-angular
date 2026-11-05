@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { IsometricAngular } from './isometric-angular';
+import { IsometricAngular } from "./isometric-angular";
 
-describe('IsometricAngular', () => {
+describe("IsometricAngular", () => {
   let component: IsometricAngular;
   let fixture: ComponentFixture<IsometricAngular>;
 
@@ -16,7 +16,7 @@ describe('IsometricAngular', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
