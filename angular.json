@@ -6,5 +6,31 @@
   },
   "newProjectRoot": "projects",
   "projects": {
+    "isometric-angular": {
+      "projectType": "library",
+      "root": "projects/isometric-angular",
+      "sourceRoot": "projects/isometric-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/isometric-angular/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/isometric-angular/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/isometric-angular/tsconfig.spec.json"
+          }
+        }
+      }
+    }
   }
 }
