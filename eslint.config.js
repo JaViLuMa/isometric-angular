@@ -22,15 +22,15 @@ module.exports = defineConfig([
         "error",
         {
           type: "attribute",
-          prefix: "lib",
+          prefix: "isometric",
           style: "camelCase",
         },
       ],
       "@angular-eslint/component-selector": [
         "error",
         {
-          type: "element",
-          prefix: "lib",
+          type: ["element", "attribute"],
+          prefix: "isometric",
           style: "kebab-case",
         },
       ],
