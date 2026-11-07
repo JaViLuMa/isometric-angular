@@ -16,22 +16,24 @@ const SHADOW_ANIMATION_OPTIONS_VARIABLE = `--isometric-shadow-animation-options`
 export function isometricShadowAnimation(
   shadowAnimation: Signal<ShadowAnimation | undefined>,
 ): Signal<CSSVariables | undefined> {
-  const shadowAnimationValue = shadowAnimation();
+  const shadowPropertiesToUse: Signal<Shadow | undefined> = computed(() => {
+    const shadowAnimationValue = shadowAnimation();
 
-  const shadowPropertiesToUse: Signal<Shadow | undefined> = computed(() =>
-    shadowAnimationValue
+    return shadowAnimationValue
       ? {
           distance: shadowAnimationValue.from,
           spacingX: shadowAnimationValue.spacingX,
           spacingY: shadowAnimationValue.spacingY,
         }
-      : undefined,
-  );
+      : undefined;
+  });
 
   const shadowStyles = isometricShadow(shadowPropertiesToUse);
-  const shadowStylesValue = shadowStyles();
 
   return computed(() => {
+    const shadowAnimationValue = shadowAnimation();
+    const shadowStylesValue = shadowStyles();
+
     if (!shadowStylesValue) {
       return undefined;
     }
