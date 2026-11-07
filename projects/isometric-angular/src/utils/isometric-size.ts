@@ -6,13 +6,11 @@ import type { CSSVariables } from "../types/common.types";
 
 export function isometricSize(
   size: Signal<SizeProps>,
-  element: Signal<IsometricElements>,
+  element: IsometricElements,
 ): Signal<CSSVariables> {
   return computed(() => {
-    const elementValue = element();
-
-    const widthVariable = `--isometric-${elementValue}-width`;
-    const heightVariable = `--isometric-${elementValue}-height`;
+    const widthVariable = `--isometric-${element}-width`;
+    const heightVariable = `--isometric-${element}-height`;
 
     const sizeValue = size();
 
