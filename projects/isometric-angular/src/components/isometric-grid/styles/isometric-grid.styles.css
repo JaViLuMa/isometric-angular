@@ -1,0 +1,27 @@
+.isometric-grid {
+  position: absolute;
+  background-image:
+    linear-gradient(
+      var(--isometric-grid-color, #000) var(--isometric-grid-lineweight, 1%),
+      transparent var(--isometric-grid-lineweight, 1%),
+      transparent calc(100% - var(--isometric-grid-lineweight, 1%)),
+      var(--isometric-grid-color, #000)
+        calc(100% - var(--isometric-grid-lineweight, 1%))
+    ),
+    linear-gradient(
+      90deg,
+      var(--isometric-grid-color, #000) var(--isometric-grid-lineweight, 1%),
+      transparent var(--isometric-grid-lineweight, 1%),
+      transparent calc(100% - var(--isometric-grid-lineweight, 1%)),
+      var(--isometric-grid-color, #000)
+        calc(100% - var(--isometric-grid-lineweight, 1%))
+    );
+  background-size: var(--isometric-grid-size, 1rem)
+    var(--isometric-grid-size, 1rem);
+  width: calc(
+    var(--isometric-grid-size, 1rem) * var(--isometric-grid-width, 1)
+  );
+  height: calc(
+    var(--isometric-grid-size, 1rem) * var(--isometric-grid-height, 1)
+  );
+}
