@@ -6,8 +6,11 @@
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "declarationMap": true,
-    "types": []
+    "types": [],
+    "paths": {
+      "isometric-angular/core": ["./core/src/public-api.ts"]
+    }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "core/**/*.ts", "isometric-*/**/*.ts"],
   "exclude": ["**/*.spec.ts"]
 }
