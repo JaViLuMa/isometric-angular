@@ -1,6 +1,6 @@
 import { computed, Directive, input } from "@angular/core";
-import { CubeSides } from "../types/cube-sides.types";
 import { cubeSideClasses } from "../constants/cube-side-classes";
+import type { CubeSides } from "../types/cube-sides.types";
 
 @Directive({
   selector: "[isometricCubeSide]",
