@@ -1,0 +1,163 @@
+.isometric-border {
+  border: var(--isometric-border-size, 0px) var(--isometric-border-style, solid)
+    var(--isometric-border-color, #000000);
+  box-sizing: border-box;
+}
+
+.isometric-edge::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--isometric-edge-color, #fff), #000 20%);
+  box-shadow: 0px 0px
+    color-mix(in srgb, var(--isometric-edge-color, #fff), #000 20%);
+  transform: translateZ(calc(-1 * var(--isometric-edge-depth, 0px)));
+}
+
+.isometric-position {
+  top: var(--isometric-position-top, 0rem);
+  left: var(--isometric-position-left, 0rem);
+  transform: translateZ(calc(var(--isometric-position-elevation, 0rem) * 0.5));
+}
+
+.isometric-rotation {
+  transform-origin: center;
+  transform: rotateZ(var(--isometric-rotate-from, 0deg));
+  animation: isometric-rotation var(--isometric-rotation-duration, 1s) linear
+    forwards infinite;
+  animation-delay: var(--isometric-rotation-delay, 0s);
+}
+
+@keyframes isometric-rotation {
+  from {
+    transform: rotateZ(var(--rotation-from, 0deg));
+  }
+  to {
+    transform: rotateZ(var(--rotation-to, 360deg));
+  }
+}
+
+.isometric-shadow::after {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: rgba(
+    0,
+    0,
+    0,
+    calc(0.2 / (1 + var(--isometric-shadow-distance, 0) / 10))
+  );
+  border-color: rgba(
+    0,
+    0,
+    0,
+    calc(0.2 / (1 + var(--isometric-shadow-distance, 0) / 10))
+  );
+  transform: translateX(
+      calc(
+        var(--isometric-shadow-distance-with-unit, 1rem) *
+          var(--isometric-shadow-spacing-x, 0)
+      )
+    )
+    translateY(
+      calc(
+        var(--isometric-shadow-distance-with-unit, 1rem) *
+          var(--isometric-shadow-spacing-y, 0)
+      )
+    )
+    translateZ(calc(-1 * var(--isometric-shadow-distance-with-unit, 1rem)));
+  box-shadow: 0 0 calc(var(--isometric-shadow-distance-with-unit, 1rem) / 10)
+    rgba(0, 0, 0, 0.2);
+  filter: blur(calc(var(--isometric-shadow-distance-with-unit, 1rem) / 10));
+}
+
+.isometric-shadow-animation::after {
+  animation: isometric-shadow-animation
+    var(--isometric-shadow-animation-duration, 1s) ease-in-out forwards
+    var(--isometric-shadow-animation-options);
+  animation-delay: var(--isometric-shadow-animation-delay, 0s);
+}
+
+@keyframes isometric-shadow-animation {
+  from {
+    background: rgba(
+      0,
+      0,
+      0,
+      calc(0.2 / (1 + var(--isometric-shadow-animation-from, 0) / 10))
+    );
+    border-color: rgba(
+      0,
+      0,
+      0,
+      calc(0.2 / (1 + var(--isometric-shadow-animation-from, 0) / 10))
+    );
+    transform: translateX(
+        calc(
+          var(--isometric-shadow-animation-from-with-unit, 0rem) *
+            var(--isometric-shadow-spacing-x, 0)
+        )
+      )
+      translateY(
+        calc(
+          var(--isometric-shadow-animation-from-with-unit, 0rem) *
+            var(--isometric-shadow-spacing-y, 0)
+        )
+      )
+      translateZ(
+        calc(-1 * var(--isometric-shadow-animation-from-with-unit, 0rem))
+      );
+    box-shadow: 0 0
+      calc(var(--isometric-shadow-animation-from-with-unit, 0rem) * 10)
+      rgba(0, 0, 0, 0.2);
+    filter: blur(
+      calc(var(--isometric-shadow-animation-from-with-unit, 0rem) / 10)
+    );
+  }
+
+  to {
+    background: rgba(
+      0,
+      0,
+      0,
+      calc(0.2 / (1 + var(--isometric-shadow-animation-to, 0) / 10))
+    );
+    border-color: rgba(
+      0,
+      0,
+      0,
+      calc(0.2 / (1 + var(--isometric-shadow-animation-to, 0) / 10))
+    );
+    transform: translateX(
+        calc(
+          var(--isometric-shadow-animation-to-with-unit, 0rem) *
+            var(--isometric-shadow-spacing-x, 0)
+        )
+      )
+      translateY(
+        calc(
+          var(--isometric-shadow-animation-to-with-unit, 0rem) *
+            var(--isometric-shadow-spacing-y, 0)
+        )
+      )
+      translateZ(
+        calc(-1 * var(--isometric-shadow-animation-to-with-unit, 0rem))
+      );
+    box-shadow: 0 0
+      calc(var(--isometric-shadow-animation-to-with-unit, 0rem) * 10)
+      rgba(0, 0, 0, 0.2);
+    filter: blur(
+      calc(var(--isometric-shadow-animation-to-with-unit, 0rem) / 10)
+    );
+  }
+}
