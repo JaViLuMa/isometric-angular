@@ -1,6 +1,0 @@
-.isometric-plane {
-  position: absolute;
-  width: var(--isometric-plane-width, 0rem);
-  height: var(--isometric-plane-height, 0rem);
-  background: var(--isometric-plane-color, #000000);
-}
