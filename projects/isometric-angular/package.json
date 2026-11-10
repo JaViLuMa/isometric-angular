@@ -1,13 +1,27 @@
 {
   "name": "isometric-angular",
-  "version": "0.0.1",
+  "author": "Matej Ruzic da Silva Pereira <matej.ruzic011@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaViLuMa/isometric-angular.git"
+  },
+  "version": "1.0.0",
+  "description": "Isometric styling library made in Angular with as much flexibility over customization as possible. Rewrite of https://morgancaron.github.io/IsometricSass/ .",
+  "homepage": "https://github.com/JaViLuMa/isometric-angular#readme",
+  "keywords": [
+    "isometric",
+    "angular",
+    "components",
+    "css",
+    "3d"
+  ],
   "peerDependencies": {
     "@angular/common": "^21.2.0",
-    "@angular/core": "^21.2.0",
-    "csstype": "^3.0.0"
+    "@angular/core": "^21.2.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "csstype": "^3.0.0"
   },
   "sideEffects": false
 }

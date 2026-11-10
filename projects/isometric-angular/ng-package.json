@@ -3,5 +3,6 @@
   "dest": "../../dist/isometric-angular",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["csstype"]
 }
